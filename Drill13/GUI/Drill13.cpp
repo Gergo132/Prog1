@@ -26,21 +26,16 @@ int main()
 			
 			
 		Vector_ref<Rectangle> rec;
-		
-		int a = 0;
-		for (int i = 0; i<8; ++i)
+	
+
+		for (int i = 0; i < 8; ++i)
 		{
-			for (int j = 0; j<8; ++j)
-			{
-				rec.push_back(new Rectangle{Point{a,a},100,100});
-				rec[rec.size()-1].set_fill_color(Color::red);
-				win.attach(rec[rec.size()-1]);
-			}
+			rec.push_back(new Rectangle(Point{i*100, i*100}, 100, 100));
+			rec[i].set_fill_color(Color::red);
 			
-			a += 100;
+			win.attach(rec[i]);
+		}	
 			
-		}
-		
 		Image i1 {Point{0, 200}, "orange.jpg"};
 		i1.set_mask(Point{0,0},200,200);
 		
